@@ -99,12 +99,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                }
 
                if(value==2){
-                   if(outcome.getText().toString().equals("")){
+                   tempOutcome = outcome.getText().toString();
+                   if(tempOutcome.isEmpty()){
                        outcome.setText(btn1.getText().toString());
                    }else{
-                       tempOutcome = outcome.getText().toString();
-                       if(outcome.getSelectionEnd()!= tempOutcome.length()){
-                           outcome.setSelection();
+                       if(outcome.getSelectionStart()!= tempOutcome.length()){
+                            outcome.setText(outcome.getSelectionEnd());
                        }else{
                            outcome.setText(tempOutcome+btn1.getText().toString());
                        }
